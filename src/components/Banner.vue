@@ -29,6 +29,7 @@
                     <v-list-group
                     no-action
                     sub-group
+                    append-icon="mdi-account-circle"
                     >
                     <template v-slot:activator>
                         <v-list-item-content>
@@ -77,7 +78,7 @@
             </v-card>
             </v-col>
             <v-col cols="12" xs="12" sm="12" md="12" lg="9">
-            <v-carousel height="300" hide-delimiter-background="true">
+            <v-carousel height="300" :hide-delimiter-background="true">
                 <v-carousel-item
                 contain
                 v-for="(item,i) in carousel"

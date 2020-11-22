@@ -51,7 +51,7 @@
         small
         dark
         bottom
-        absolute
+        fixed
         left
         color="#7CDF48"
       >
@@ -61,7 +61,7 @@
       <v-btn
         fab
         dark
-        absolute
+        fixed
         bottom
         right
         color="#fff"
@@ -71,14 +71,16 @@
       </v-btn>
 
       <v-btn
+        fixed
         fab
         dark
-        small
-        absolute
+        small        
         bottom
         right
         color="#7CDF48"
         @click="$vuetify.goTo(target, options)"
+        v-show="fab"
+        v-scroll="onScroll"
       >
         <v-icon>mdi-chevron-up</v-icon>
       </v-btn>
@@ -96,6 +98,7 @@ export default {
         offset: 0,
         easing: 'easeInOutCubic',
         easings: Object.keys(easings),
+        fab: false
       }
     },
 
@@ -112,6 +115,17 @@ export default {
           easing: this.easing,
         }
       },
+    },
+
+    methods:{
+      onScroll (e) {
+      if (typeof window === 'undefined') return
+      const top = window.pageYOffset ||   e.target.scrollTop || 0
+      this.fab = top > 20
+    },
+    toTop () {
+      this.$vuetify.goTo(0)
+    }
     }
 }
 </script>

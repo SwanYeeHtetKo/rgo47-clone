@@ -9,7 +9,7 @@
           <img src="@/assets/images/logo.png"/>
       </v-toolbar-title>
 
-      <v-text-field label="Type for search" single-line outlined dense class="pt-5 rounded-0 ml-12 hidden-sm-and-down">
+      <v-text-field filled label="Type for search"  single-line outlined  dense class="pt-5 rounded-0 ml-12 hidden-sm-and-down">
         <template v-slot:append-outer>
             <v-btn class="rounded-0 rounded-r-lg"  depressed style="margin-top:-8px;margin-left:-9px" color="#FFE12F" height="40">
                 <v-icon >
@@ -21,10 +21,6 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-account-outline</v-icon>
-      </v-btn>      
-
       <v-menu
         left
         bottom
@@ -34,8 +30,11 @@
             text
             v-bind="attrs"
             v-on="on"
+            class="text-capitalize"
           >
+          <v-icon>mdi-account-outline</v-icon>
             My Account
+            <v-icon>mdi-chevron-down</v-icon>
           </v-btn>
         </template>
 
